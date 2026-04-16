@@ -1,0 +1,381 @@
+/* ── RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── BASE ── */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f5f6fa;
+  color: #222;
+  min-height: 100vh;
+}
+
+/* ══════════════════════════════
+   HEADER
+══════════════════════════════ */
+header {
+  background: #fff;
+  border-bottom: 1px solid #e2e6ea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-danantara {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+header .title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #003087;
+  letter-spacing: 0.4px;
+  text-align: center;
+  flex: 1;
+  padding: 0 24px;
+}
+
+.logo-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo-pelindo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ══════════════════════════════
+   SECONDARY NAV
+══════════════════════════════ */
+nav {
+  background: #fff;
+  border-bottom: 1px solid #e2e6ea;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 40px;
+  gap: 4px;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: #444;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+nav a:hover {
+  background: #f0f4ff;
+  color: #003087;
+}
+
+nav a.active {
+  color: #003087;
+  font-weight: 500;
+}
+
+nav a svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ══════════════════════════════
+   MAIN LAYOUT
+══════════════════════════════ */
+main {
+  padding: 16px 24px 24px;
+}
+
+.overview-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 14px;
+}
+
+/* ══════════════════════════════
+   TOP ROW (Weather + Map)
+══════════════════════════════ */
+.top-row {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* ── WEATHER CARD ── */
+.weather-card {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e6ea;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-location {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+}
+
+.weather-date {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.weather-condition {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 10px;
+}
+
+.sun-icon {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.temp {
+  font-size: 42px;
+  font-weight: 300;
+  color: #222;
+}
+
+.temp sup {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.weather-stats {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.chart-label {
+  font-size: 11px;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.temp-chart-wrap {
+  position: relative;
+  height: 90px;
+  margin-bottom: 14px;
+}
+
+.forecast {
+  display: flex;
+  gap: 20px;
+}
+
+.forecast-day {
+  text-align: center;
+  font-size: 11px;
+}
+
+.forecast-day .day-label {
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.forecast-day .day-icon {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.forecast-day .day-temp {
+  color: #333;
+  font-weight: 500;
+}
+
+.forecast-day.today .day-label {
+  color: #003087;
+  font-weight: 600;
+}
+
+.weather-source {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #888;
+}
+
+.weather-source a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+/* ── MAP CARD ── */
+.map-card {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e6ea;
+  overflow: hidden;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 420px;
+}
+
+.map-legend {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 11px;
+  z-index: 999;
+  line-height: 1.8;
+}
+
+.map-legend strong {
+  font-size: 11px;
+  color: #333;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0077cc;
+  flex-shrink: 0;
+}
+
+.legend-box {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.legend-green {
+  background: #4caf50;
+  opacity: 0.7;
+}
+
+.legend-red {
+  background: #e53935;
+  opacity: 0.7;
+}
+
+/* ══════════════════════════════
+   BOTTOM ROW (Charts + Stats)
+══════════════════════════════ */
+.bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.chart-card {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e6ea;
+  padding: 16px 20px;
+}
+
+.chart-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.chart-wrap {
+  position: relative;
+  height: 200px;
+}
+
+/* ── STATS CARD ── */
+.stats-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 14px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f8f8f8;
+  font-size: 13px;
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: #555;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: #003087;
+}
+
+.stat-unit {
+  font-size: 11px;
+  color: #888;
+  font-weight: 400;
+}
